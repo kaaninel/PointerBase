@@ -1,7 +1,9 @@
 
 void ExampleData(){
 
-    User* Natalie = DB.Users.Insert(new User("nati","1234","u@k.com"));
+    DB.Drop();
+    
+    User* Anonymous = DB.Users.Insert(new User("anonymous","1234","anon@k.com"));
     User* Ugur = DB.Users.Insert(new User("ugur","1234","u@k.com"));
     User* Kaan = DB.Users.Insert(new User("kaaninel","1234","k@k.com"));
 

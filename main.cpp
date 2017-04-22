@@ -1,7 +1,15 @@
 #include "include.h"
 
 int main(){
-    ExampleData();
-    cout << DB.Posts.FindOne([](Post* p){ return p->text == "Test2";})->author->username << endl;
+    ifstream ifs("test.pbsf");
+    ifs >> DB;
+    ifs.close();
+    
+    while(Running) s.ChangePage(Home);
+
+    ofstream ofsf("test.pbsf");
+    ofsf << DB;
+    ofsf.close();
+    cout << endl << endl;
     return 0;
 }
