@@ -26,9 +26,7 @@ public:
         o << name << endl;
     }
     ~Tag(){
-        cout << "Deleting Tag " << name << endl;
-        /*vector<Topic*> ts = topics.FindVector(_(Topic, true));
-        for(auto t: ts) topics.UnRelate(t);*/
+        //topics.ForEach([this](Topic* t){ t->tags.UnRelate(this); });
     }
 };
 

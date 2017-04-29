@@ -32,11 +32,17 @@ public:
     page();
   }
 
+  template <typename T>
+  void ChangePage(void (*page)(T), T b){
+    this->Clear();
+    page(b);
+  }
+
   int Select(string q,vector<string> options){
     int l = options.size();
     cout << endl << endl;
     for(int i = 0; i < l; i++)
-      cout << "\t" << i << ": " + options[i] << endl;
+      cout << "\t" << (i+1) << ": " + options[i] << endl;
     cout << endl << endl;
     return Ask<int>(q);
   }

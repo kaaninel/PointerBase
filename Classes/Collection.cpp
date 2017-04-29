@@ -39,7 +39,7 @@ public:
     }
 
     T* Remove(T* Doc){
-        T* n = new T(*Doc);
+        T* n = new T(Doc);
         this->Store.remove(Doc);
         delete Doc;
         return n;

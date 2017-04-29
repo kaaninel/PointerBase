@@ -21,7 +21,8 @@ public:
         user = DB.Users.Get(userinit);
     }
     ~Like(){
-        
+        post->likes.UnRelate(this);
+        user->likes.UnRelate(this);
     }
 };
 

@@ -39,9 +39,9 @@ public:
     }
 
     ~User(){
-        //topics.Loop(_(Topic, true), [](Topic* x){DB.Topics.Delete(x);});
-        //posts.Loop(_(Post, true), [](Post* x){DB.Posts.Delete(x);});
-        cout << username << " deleted!" << endl;
+        topics.ForEachI([](Topic* t){ DB.Topics.Delete(t); });
+        posts.ForEachI([](Post* t){ DB.Posts.Delete(t); });
+        likes.ForEachI([](Like* t){ DB.Likes.Delete(t); });
     }
 
 };

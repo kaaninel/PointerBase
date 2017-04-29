@@ -17,6 +17,9 @@ public:
         tags = Set<Tag>(&DB.Tags);
         posts = Set<Post>(&DB.Posts);
     }
+    void Update(){
+        title =  s.Ask<string>("Başlık");
+    }
     void Init(){
         author = DB.Users.Get(authorinit);
         tags.Init();
@@ -33,11 +36,9 @@ public:
         posts = Set<Post>(&DB.Posts);
     }
     ~Topic(){
-        cout << "Deleting Topic " << title << endl;
-        /*author->topics.UnRelate(this); 
-        vector<Tag*> ts = tags.FindVector(_(Tag, true));
-        for(auto t: ts) tags.UnRelate(t);
-        posts.Loop(_(Post, true), [](Post* x){DB.Posts.Delete(x);});*/
+        author->topics.UnRelate(this);
+        tags.ForEach([this](Tag* t){ t->topics.UnRelate(this); });
+        posts.ForEachI([](Post* t){ DB.Posts.Delete(t); });
     }
     void AddTag(Tag* t){
         tags.Relate(t);

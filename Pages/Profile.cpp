@@ -1,26 +1,29 @@
 #pragma once
 #include "../include.h"
 
-void Profile(){
+void Profile(User* user){
   cout << endl;
-  cout << "\t" << "Kullanici Adi: " << CurrentUser->username << endl;
-  cout << "\t" << "E-mail: " << CurrentUser->email << endl;
-  
-  CurrentUser->topics.Loop(_(Topic, true),[](Topic* t){ 
-    cout << t->title << endl;
-    t->posts.Loop(_(Post,true), [](Post* p){ cout << "\t" << p->text << endl; }); 
+  cout << "\t" << "Kullanici Adi: " << user->username << endl;
+  cout << "\t" << "E-mail: " << user->email << endl;
+  cout << endl << "Konularim" << endl;
+  user->topics.Loop(_(Topic, true),[](Topic* t){ 
+    cout << " -> " << t->title << endl;
   });
   cout << endl;
 
   int p = s.Select("Islem", {
     "Profili duzenle",
-    "Yeni Konu",
-    "Yeni Gonderi"
+    "Geri Dön"
   });
 
   switch(p){
     case 0: 
-      CurrentUser->Update();
+      user->Update();
+      s.ChangePage(Profile, user);
       break;
   }
+}
+
+void Profile(){
+  Profile(CurrentUser);
 }

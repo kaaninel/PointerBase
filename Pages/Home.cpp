@@ -12,19 +12,17 @@ void Home(){
 
   int Page = s.Select("Sayfa", {
     "Profilim",
-    "Konular",
-    "Gonderiler",
-    "Etiketler",
     "Kullanicilar",
+    "Etiketler",
+    "Konular",
     "Cikis Yap"
   });
 
   switch(Page){
-    Rd(0,Profile)
-    Rd(1,Topics)
-    Rd(2,Posts)
-    Rd(3,Tags)
-    Rd(4,Users)
+    Rd(1,Profile)
+    Rd(2,Users)
+    Rd(3,Topics)
+    Rd(4,Tags)
     case 5:
       Running = false;
       break;

@@ -10,7 +10,7 @@ void Login(){
   });
   int tryc = 0;
   s.Clear();
-  if(p) DB.Users.Create();
+  if(p == 2) DB.Users.Create();
   while(!CurrentUser && tryc < 3){
     s.Clear();
     if(tryc) cout << "Tekrar Deneyin!" << endl;

@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "*.tcc": "cpp",
+        "initializer_list": "cpp",
+        "ostream": "cpp",
+        "iosfwd": "cpp",
+        "system_error": "cpp",
+        "type_traits": "cpp",
+        "functional": "cpp",
+        "tuple": "cpp"
+    }
+}

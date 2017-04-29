@@ -71,6 +71,22 @@ public:
         return tmp;
     }
 
+    vector<string> MapSelection(function<string (T*)> cmp){
+        typename list<T*>::iterator It = Store.begin();
+        vector<string> tmp; 
+        for (;It != Store.end(); ++It)
+            tmp.push_back(cmp(*It));
+        return tmp;
+    }
+
+    vector<string> MapSelection(function<bool (T*)> cmp, function<string (T*)> lt){
+        typename list<T*>::iterator It = Store.begin();
+        vector<string> tmp; 
+        for (;It != Store.end(); ++It)
+            if(cmp(*It)) tmp.push_back(lt(*It));
+        return tmp;
+    }
+
     vector<T*> FindVector(function<bool (T*)> cmp){
         typename list<T*>::iterator It = Store.begin();
         vector<T*> tmp; 
@@ -98,6 +114,19 @@ public:
         typename list<T*>::iterator It = Store.begin();
         for (;It != this->Store.end(); ++It)
             if(cmp(*It)) lp(*It);
+    }
+
+    void ForEach(function<void (T*)> lp){
+        typename list<T*>::iterator It = Store.begin();
+        for (;It != this->Store.end(); ++It)
+            lp(*It);
+    }
+
+    void ForEachI(function<void (T*)> lp){
+        list<T*> t = this->Find(_(T, true));
+        typename list<T*>::iterator It = t.begin();
+        for (;It != t.end(); ++It)
+            lp(*It);
     }
 
     size_t Count(){

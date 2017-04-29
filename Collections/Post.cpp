@@ -48,9 +48,9 @@ public:
     likes = Set<Like>(&DB.Likes);
   }
   ~Post(){
-    cout << "Deleting Post " << text << endl;
-    /*author->posts.UnRelate(this);
-    topic->posts.UnRelate(this);*/
+    author->posts.UnRelate(this);
+    topic->posts.UnRelate(this);
+    likes.ForEachI([](Like* t){ DB.Likes.Delete(t); });
   }
 };
 
