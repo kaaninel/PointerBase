@@ -11,6 +11,10 @@ using namespace std;
 // Lambda Expression
 #define _(Type, func) [](Type* x){ return func; }
 
+//PageSwitchs
+#define Rd(n,P) case n: s.ChangePage(P); break;
+#define Rdx(n,P,x) case n: s.ChangePage(P,x); break;
+
 #include "Classes/Serialize.cpp"
 #include "Classes/Screen.cpp"
 Screen s;
@@ -37,10 +41,12 @@ ForumDB DB;
 
 #include "Pages/Login.cpp"
 #include "Pages/Posts.cpp"
-#include "Pages/Profile.cpp"
 #include "Pages/Tags.cpp"
 #include "Pages/Topics.cpp"
+#include "Pages/Profile.cpp"
 #include "Pages/Users.cpp"
+#include "Pages/Likes.cpp"
+#include "Pages/GodMode.cpp"
 #include "Pages/Home.cpp"
 
 #include "Examples/Loop.cpp"

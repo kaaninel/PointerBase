@@ -38,6 +38,10 @@ public:
     page(b);
   }
 
+  void Wait(){
+    this->Ask<string>("Devam Etmek icin bir tusa basin.");
+  }
+
   int Select(string q,vector<string> options){
     int l = options.size();
     cout << endl << endl;

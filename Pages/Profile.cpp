@@ -1,7 +1,7 @@
 #pragma once
 #include "../include.h"
 
-void Profile(User* user){
+void Info(User* user){
   cout << endl;
   cout << "\t" << "Kullanici Adi: " << user->username << endl;
   cout << "\t" << "E-mail: " << user->email << endl;
@@ -11,19 +11,33 @@ void Profile(User* user){
   });
   cout << endl;
 
+}
+
+void Profile(User* user){
+  Info(user);
   int p = s.Select("Islem", {
+    "Konular",
+    "Geri Dön"
+  });
+
+  switch(p){
+    Rdx(1, Topics, user)
+  }
+}
+
+void Profile(){
+  Info(CurrentUser);
+  int p = s.Select("Islem", {
+    "Konular",
     "Profili duzenle",
     "Geri Dön"
   });
 
   switch(p){
-    case 0: 
-      user->Update();
-      s.ChangePage(Profile, user);
+    Rdx(1, Topics, CurrentUser)
+    case 2: 
+      CurrentUser->Update();
+      s.ChangePage(Profile, CurrentUser);
       break;
   }
-}
-
-void Profile(){
-  Profile(CurrentUser);
 }

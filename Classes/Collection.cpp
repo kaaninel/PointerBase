@@ -62,6 +62,10 @@ public:
         return *It;
     }
 
+    T* operator[](int pl){
+        return this->Get((long)pl);
+    }
+
 };
 
 template <typename T>

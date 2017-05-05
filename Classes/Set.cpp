@@ -132,6 +132,14 @@ public:
     size_t Count(){
         return Store.size();        
     }
+    
+    T* operator[](int pl){
+        if(pl == -1) return NULL;
+        else if(pl == 0) return *this->Store.begin();
+        typename list<T*>::iterator It = this->Store.begin();
+        while(--pl) ++It;
+        return *It;
+    }
 
 };
 

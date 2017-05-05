@@ -24,6 +24,10 @@ public:
         post->likes.UnRelate(this);
         user->likes.UnRelate(this);
     }
+    void Update(){
+        user = DB.Users.FindOODR<string>("Kullanıcı Adı",[](User* u, string s){return u->username == s;});
+        post =  DB.Posts.FindOODR<string>("Gonderi",[](Post* u, string s){return u->text == s;});
+    }
 };
 
 ostream& operator<<(ostream& stream, Like* const& d)

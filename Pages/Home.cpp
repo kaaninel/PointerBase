@@ -3,8 +3,6 @@
 
 bool Running = true;
 
-#define Rd(n,P) case n: s.ChangePage(P); break;
-
 void Home(){
   if(!CurrentUser) s.ChangePage(Login);
   s.Clear();
@@ -13,8 +11,9 @@ void Home(){
   int Page = s.Select("Sayfa", {
     "Profilim",
     "Kullanicilar",
-    "Etiketler",
     "Konular",
+    "Etiketler",
+    "GodMode",
     "Cikis Yap"
   });
 
@@ -23,7 +22,8 @@ void Home(){
     Rd(2,Users)
     Rd(3,Topics)
     Rd(4,Tags)
-    case 5:
+    Rd(5,GodMode)
+    case 6:
       Running = false;
       break;
   }
